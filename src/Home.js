@@ -43,7 +43,8 @@ function Home(){
 
    </div>
    <div id="joinbtn">
- <button className="btn">JOIN NOW</button>
+ {/* <button className="btn">JOIN NOW</button> */}
+ <a href="https://razorpay.me/@rajlee"> <button className="btn">JOIN NOW</button></a>
  <h1 className="footer">Rajalee Innovations Pvt Ltd </h1>
 </div>
         </>
