@@ -5,6 +5,7 @@ import About from './About'
 import JoinUs from './JoinUs'
 import Contact from './Contact'
 import Login from './Login'
+
 import './App.css'
 function App(){
     return(
@@ -23,6 +24,7 @@ function App(){
             <Route path='/Joinus' element={<JoinUs/>}  />
             <Route path='/Contact' element={<Contact/>}  />
             <Route path='/Login' element={<Login/>} />
+           
         </Routes>
         </BrowserRouter>
        

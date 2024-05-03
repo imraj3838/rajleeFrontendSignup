@@ -1,135 +1,85 @@
-// import React ,{useState} from "react";
-// import './App.css'
-// function Course( ){
-//    let [activeCardIndex,setActiveCardIndex]= useState(null)
-//    console.log(activeCardIndex)
-//     const Coursedetails =[
-//             {
-//                 index: 0,
-//                 image: "https://www.onlinecoursereport.com/wp-content/uploads/2020/07/shutterstock_394793860-1536x1177.jpg",
-//               title: "Web Development Bootcamp"
-//             },
-//             {
-//                 index: 1,
-//                 image: "https://i.ytimg.com/vi/wOiEIxbU2eI/maxresdefault.jpg",
-//               title: "JavaScript Fundamentals"
-//             },
-//             {
-//                 index: 2,
-//                 image: "https://cdn.eduonix.com/assets/images/header_img/2020022708051011716.jpg",
-//               title: "React Masterclasses"
-//             },
-//             {
-//                 index: 3,
-//               image :"https://static.skillshare.com/uploads/video/thumbnails/c073470e95824079bc93e74d1bd5bdb5/original",
-//               title: "Python Programming"
-//             },
-//             {
-//                 index: 4,
-//                 image: "https://i1.wp.com/phdcoding.com/wp-content/uploads/2020/04/what-is-data-science.jpg?fit=1920%2C1080&ssl=1",
-//               title: "Data Science"
-//             },
-//             {
-//                 index: 5,
-//                 image: "https://logos-download.com/wp-content/uploads/2016/10/Java_logo_icon.png",
-//               title: "Java"
-//             }
-//           ];
-          
-//     return(
-//         <>
-//         <h1 id="coursehead">COURSES</h1>
-//         <div id="container" >
-//             {
-              
-//               Coursedetails.map((Course,index)=>{
-//                     return(
-                        
-//                         <div id="course-card" key={index} onClick={() => {
-//                             console.log("Card clicked");
-//                             setActiveCardIndex(index);
-//                           }}>
-//                             <div className = {`card ${index === activeCardIndex ? `active-card`:""}`}>
-//                         <img className ="course-img" src= {Course.image} alt="title"/>
-//                         <p className="para">{Course.title}</p>
-//                         </div>
-//                         </div>
-//                     )
-//                 })
-//                 }
-          
-//         </div>
-//         </>
-//     )
-// }
-// export default Course;
-
-
 import React, { useState } from "react";
 import './App.css'
 
 function Course() {
-  const [activeCardIndex, setActiveCardIndex] = useState(null);
+  const [selectedCourse, setSelectedCourse] = useState(null);
+  const [showAllCards, setShowAllCards] = useState(true);
 
-  const Coursedetails = [
+  const courses = [
     {
-      index: 0,
+      id: 0,
       image: "https://www.onlinecoursereport.com/wp-content/uploads/2020/07/shutterstock_394793860-1536x1177.jpg",
       title: "Web Development Bootcamp",
-      description: "This bootcamp covers the fundamentals of web development including HTML, CSS, and JavaScript.",
+      description: "Web development involves frontend and backend tasks, employing HTML, CSS, and JavaScript for user interface design and server-side operations managed by languages like Python or PHP. Security protocols such as HTTPS and SEO optimization ensure website protection and visibility. Continuous learning is vital in this dynamic field, and collaboration among developers, designers, and project managers drives successful outcomes, fundamentally shaping internet interactions and digital services."
     },
     {
-      index: 1,
+      id: 1,
       image: "https://i.ytimg.com/vi/wOiEIxbU2eI/maxresdefault.jpg",
       title: "JavaScript Fundamentals",
-      description: "Learn the basics of JavaScript programming language, including variables, loops, and functions.",
+      description: "JavaScript is a scripting language used to create interactive web pages and web applications. It runs on the client-side, enabling dynamic and responsive user interfaces. With its versatile capabilities, JavaScript can manipulate webpage elements, handle user input, and communicate with servers asynchronously. Its widespread adoption and extensive libraries make it an essential tool for web developers worldwide. JavaScript continues to evolve, with regular updates and improvements, ensuring its relevance in modern web development.Learn the basics of JavaScript programming language, including variables, loops, and functions."
     },
     {
-      index: 2,
+      id: 2,
       image: "https://cdn.eduonix.com/assets/images/header_img/2020022708051011716.jpg",
       title: "React Masterclasses",
-      description: "Master ReactJS framework with comprehensive classes covering state management, hooks, and more.",
+      description: "React is a popular JavaScript library for building user interfaces, focusing on component-based development for efficient code organization. It simplifies the creation of interactive UIs by managing the application state and updating the DOM efficiently. React's virtual DOM improves performance by minimizing unnecessary re-renders. Its ecosystem includes tools like React Router and Redux for routing and state management, respectively. React's declarative syntax and reusable components make it a preferred choice for developing scalable and maintainable web applications."
     },
     {
-      index: 3,
+      id: 3,
       image: "https://static.skillshare.com/uploads/video/thumbnails/c073470e95824079bc93e74d1bd5bdb5/original",
       title: "Python Programming",
-      description: "Dive into the world of Python programming with hands-on projects and practical examples.",
+      description: "Python is a versatile and beginner-friendly programming language known for its readability and simplicity. It supports multiple paradigms, including procedural, object-oriented, and functional programming. Python's extensive standard library offers modules for various tasks, from web development to data analysis and machine learning. Its clear syntax and dynamic typing make it conducive to rapid development and prototyping. Python's large and active community contributes to its widespread adoption and continuous evolution."
     },
     {
-      index: 4,
+      id: 4,
       image: "https://i1.wp.com/phdcoding.com/wp-content/uploads/2020/04/what-is-data-science.jpg?fit=1920%2C1080&ssl=1",
       title: "Data Science",
-      description: "Explore data science concepts including machine learning, data visualization, and predictive analytics.",
+      description: "Data science involves extracting insights from data using scientific methods and advanced algorithms. It encompasses data cleaning, analysis, visualization, and interpretation to inform decision-making processes. Python and R are commonly used programming languages in data science, along with tools like TensorFlow and scikit-learn for machine learning. Data scientists leverage statistical techniques and machine learning models to solve complex problems and predict future outcomes. The field is vital for businesses seeking to gain competitive advantages through data-driven strategies and innovation."
     },
     {
-      index: 5,
+      id: 5,
       image: "https://logos-download.com/wp-content/uploads/2016/10/Java_logo_icon.png",
       title: "Java",
-      description: "Learn Java programming language from basics to advanced topics including object-oriented programming and multithreading.",
+      description: "Java is a versatile and widely-used programming language renowned for its platform independence and robustness. It follows the write once, run anywhere principle, enabling developers to create applications that can run on any device with a Java Virtual Machine (JVM). Java's object-oriented nature promotes code reusability and modularity, enhancing development efficiency. It has a vast ecosystem of libraries, frameworks, and tools, making it suitable for various applications, from web development to enterprise software. Java's strong community support and regular updates ensure its relevance and longevity in the software development landscape."
     }
   ];
+
+  const handleCourseClick = (id) => {
+    if (selectedCourse === id) {
+      setSelectedCourse(null);
+      setShowAllCards(true);
+    } else {
+      setSelectedCourse(id);
+      setShowAllCards(false);
+    }
+  };
 
   return (
     <>
       <h1 id="coursehead">COURSES</h1>
       <div id="container">
-        {Coursedetails.map((Course, index) => {
-          return (
-            <div id="course-card" key={index} onClick={() => setActiveCardIndex(index)}>
-              <div className={`card ${index === activeCardIndex ? "active-card" : ""}`}>
-                <img className="course-img" src={Course.image} alt="title" />
-                <div className="card-details">
-                  <h2 className="course-title">{Course.title}</h2>
-                  <p className="course-description">{index === activeCardIndex ? Course.description : ''}</p>
-                </div>
-              </div>
+        {showAllCards && courses.map(course => (
+          <div id="course-card" className={showAllCards ? 'full-width' : ''} key={course.id} onClick={() => handleCourseClick(course.id)}>
+            <img className="course-img" src={course.image} alt="title" />
+            <div className="card-details">
+              <h2 className="course-title">{course.title}</h2>
             </div>
-          );
-        })}
+          </div>
+        ))}
+        {!showAllCards && courses.map(course => (
+          selectedCourse === course.id &&
+          <div id="course-card" key={course.id} onClick={() => handleCourseClick(course.id)}>
+            <img className="course-img" src={course.image} alt="title" />
+            <div className="card-details">
+              <h2 className="course-title">{course.title}</h2>
+              <p className="course-description">{course.description}</p>
+            </div>
+          </div>
+        ))}
       </div>
     </>
   );
 }
 
 export default Course;
+
