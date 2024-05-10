@@ -4,7 +4,7 @@ import Home from "./Home";
 import About from './About'
 import JoinUs from './JoinUs'
 import Contact from './Contact'
-import Login from './Login'
+import Singup from './Singup'
 
 import './App.css'
 function App(){
@@ -16,14 +16,14 @@ function App(){
          <Link className="tag" to='/About'>About</Link>
          <Link className="tag" to='/JoinUS'>JoinUs</Link>
          <Link  className="tag" to='/Contact'>Contact</Link>
-         <Link className="tag" to='/Login'>Login</Link>
+           <Link className="tag" to='/Singup'>Sing-up</Link>
         </div>
         <Routes>
             <Route path = '/'  element={<Home/>}/>
             <Route path='/About' element= {<About/>}  />
             <Route path='/Joinus' element={<JoinUs/>}  />
             <Route path='/Contact' element={<Contact/>}  />
-            <Route path='/Login' element={<Login/>} />
+            <Route  path='/Singup' element={<Singup/>}/>
            
         </Routes>
         </BrowserRouter>

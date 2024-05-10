@@ -44,22 +44,22 @@ function Course() {
     }
   ];
 
-  const handleCourseClick = (id) => {
-    if (selectedCourse === id) {
-      setSelectedCourse(null);
-      setShowAllCards(true);
-    } else {
-      setSelectedCourse(id);
-      setShowAllCards(false);
-    }
-  };
-
+  const handleCourseClick = (id)=>{
+if(selectedCourse === id){
+  setShowAllCards (true)
+  setSelectedCourse(null)
+}else{
+  setShowAllCards(false)
+  setSelectedCourse(id)
+}
+  }
   return (
     <>
       <h1 id="coursehead">COURSES</h1>
+      
       <div id="container">
         {showAllCards && courses.map(course => (
-          <div id="course-card" className={showAllCards ? 'full-width' : ''} key={course.id} onClick={() => handleCourseClick(course.id)}>
+          <div id="course-card" className={showAllCards ? 'full-width' : '100%'} onClick={() => handleCourseClick(course.id)}>
             <img className="course-img" src={course.image} alt="title" />
             <div className="card-details">
               <h2 className="course-title">{course.title}</h2>
@@ -68,7 +68,7 @@ function Course() {
         ))}
         {!showAllCards && courses.map(course => (
           selectedCourse === course.id &&
-          <div id="course-card" key={course.id} onClick={() => handleCourseClick(course.id)}>
+          <div id="course-card"   key={course.id} onClick={() => handleCourseClick(course.id)}>
             <img className="course-img" src={course.image} alt="title" />
             <div className="card-details">
               <h2 className="course-title">{course.title}</h2>
@@ -82,4 +82,3 @@ function Course() {
 }
 
 export default Course;
-
