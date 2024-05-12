@@ -7,6 +7,7 @@ import Contact from './Contact'
 import Singup from './Singup'
 import Login from "./Login";
 
+
 import './App.css'
 function App(){
     return(
