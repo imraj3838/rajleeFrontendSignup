@@ -6,6 +6,7 @@ import JoinUs from './JoinUs'
 import Contact from './Contact'
 import Singup from './Singup'
 import Login from "./Login";
+import Dashboard from "./Dashboard";
 
 
 import './App.css'
@@ -27,6 +28,7 @@ function App(){
             <Route path='/Contact' element={<Contact/>}  />
             <Route  path='/Singup' element={<Singup/>}/>
             <Route  path='/login' element={<Login/>}/>
+            <Route  path='/dashboard' element={<Dashboard/>}/>
             
            
         </Routes>
