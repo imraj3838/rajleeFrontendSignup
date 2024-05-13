@@ -254,7 +254,7 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8080/epankaj/v.0/users/save', formData);
+      const response = await axios.post('http://3.111.37.163:8080/epankaj/v.0/users/save', formData);
       console.log(response.data);
       setSignUpSuccess(true);
     } catch (error) {

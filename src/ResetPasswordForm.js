@@ -82,7 +82,7 @@ const ResetPasswordForm = () => {
         newPassword,
       };
 
-      await axios.post('http://localhost:8080/epankaj/v.0/users/resetpassword', resetPasswordData);
+      await axios.post('http://3.111.37.163:8080/epankaj/v.0/users/resetpassword', resetPasswordData);
       setMessage('Password reset successfully.');
     } catch (error) {
       setMessage('An error occurred. Please try again.');

@@ -10,7 +10,7 @@ const ForgotPasswordForm = () => {
     e.preventDefault();
 
     try {
-      await axios.post('http://localhost:8080/epankaj/v.0/users/forgotpassword', { email });
+      await axios.post('http://3.111.37.163:8080/epankaj/v.0/users/forgotpassword', { email });
       setMessage('Reset password link has been sent to your email.');
     } catch (error) {
       setMessage('An error occurred. Please try again.');

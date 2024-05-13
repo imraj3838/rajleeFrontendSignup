@@ -33,7 +33,7 @@ const Contact = () => {
     e.preventDefault();
 
     try {
-      await axios.post('http://localhost:8080/epankaj/v.0/users/contact', {
+      await axios.post('http://3.111.37.163:8080/epankaj/v.0/users/contact', {
         name,
         email,
         message,
