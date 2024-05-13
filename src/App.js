@@ -7,6 +7,8 @@ import Contact from './Contact'
 import Singup from './Singup'
 import Login from "./Login";
 import Dashboard from "./Dashboard";
+import ForgotPasswordForm from './ForgotPasswordForm';
+import ResetPasswordForm from "./ResetPasswordForm";
 
 
 import './App.css'
@@ -29,8 +31,8 @@ function App(){
             <Route  path='/Singup' element={<Singup/>}/>
             <Route  path='/login' element={<Login/>}/>
             <Route  path='/dashboard' element={<Dashboard/>}/>
-            
-           
+            <Route  path="/forgotpassword" element={<ForgotPasswordForm/>}/>
+            <Route  path="/resetpassword/:token" element={<ResetPasswordForm/>}/>
         </Routes>
         </BrowserRouter>
        

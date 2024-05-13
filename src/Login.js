@@ -144,17 +144,12 @@
 //3rd using useHistory
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate from React Router
+import { useNavigate } from 'react-router-dom';
 import './Login.css';
 
 const Login = () => {
-  const [formData, setFormData] = useState({
-    email: '',
-    password: '',
-  });
+  const [formData, setFormData] = useState({ email: '', password: '' });
   const [error, setError] = useState('');
-
-  // Initialize useNavigate hook
   const navigate = useNavigate();
   const authToken = null;
 
@@ -167,21 +162,17 @@ const Login = () => {
     try {
       const response = await axios.post('http://localhost:8080/epankaj/v.0/users/login', formData);
       const { token } = response.data;
-
-      // set token in localStorage
-      // Storing the token in localStorage
       localStorage.setItem('token', authToken);
-
-
-      // Set the token in the Authorization header for subsequent requests
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-
-      // Redirect to Dashboard component upon successful authentication
-      navigate('/dashboard'); // Redirect to the '/dashboard' route
+      navigate('/dashboard');
     } catch (error) {
       console.error(error);
       setError('Invalid credentials');
     }
+  };
+
+  const handleForgotPassword = () => {
+    navigate('/forgotpassword');
   };
 
   return (
@@ -213,6 +204,9 @@ const Login = () => {
         </div>
         <button type="submit" className="btn">
           Login
+        </button>
+        <button type="button" className="btn" onClick={handleForgotPassword}>
+          Forgot Password
         </button>
       </form>
     </div>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router'; // Import useHistory from React Router
 import './Dashboard.css'; // Import Dashboard CSS if needed
+import  YoutubeVideo from './component/YoutubeVideo';
 
 const Dashboard = () => {
   const [user, setUser] = useState(null);
@@ -38,6 +39,7 @@ const Dashboard = () => {
       <div className="user-info">
         <img src={user.image} alt="User" className="user-avatar" />
         <h1>Welcome {user.name}!</h1>
+        <YoutubeVideo />
       </div>
     )}
     <p>Thank you for joining the Rajlee group. We're glad to have you on our team.</p>
