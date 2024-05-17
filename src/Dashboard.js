@@ -13,7 +13,7 @@ const Dashboard = () => {
     // Fetch user details when component mounts
     const fetchUserDetails = async () => {
       try {
-        const response = await axios.get('http://3.111.37.163:8080/epankaj/v.0/users/me');
+        const response = await axios.get('http://localhost:8080/epankaj/v.0/users/me');
         console.log(response.data);
         setUser(response.data);
       } catch (error) {

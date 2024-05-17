@@ -160,7 +160,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://3.111.37.163:8080/epankaj/v.0/users/login', formData);
+      const response = await axios.post('http://localhost:8080/epankaj/v.0/users/login', formData);
       const { token } = response.data;
       localStorage.setItem('token', authToken);
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
